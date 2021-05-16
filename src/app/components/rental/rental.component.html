@@ -5,17 +5,17 @@
     <thead>
         <tr>
             <td>Id</td>
-            <td>Car Id</td>
-            <td>Customer Id</td>
+            <td>Brand</td>
+            <td>Full Name</td>
             <td>Rent Date</td>
             <td>Return Date</td>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let rental of rentals">
-            <td>{{rental.id}}</td>
-            <td>{{rental.carId}}</td>
-            <td>{{rental.customerId}}</td>
+        <tr *ngFor="let rental of rentalDetails">
+            <td>{{rental.rentalId}}</td>
+            <td>{{rental.brandName}}</td>
+            <td>{{rental.fullName}}</td>
             <td>{{rental.rentDate}}</td>
             <td>{{rental.returnDate}}</td>
         </tr>

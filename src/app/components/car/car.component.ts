@@ -19,12 +19,10 @@ export class CarComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{
       if (params["brandId"]) {
         this.getCarsByBrand(params["brandId"]);
-        console.log(params["brandId"]);
         
       }
       else if(params["colorId"]){
         this.getCarsByColor(params["colorId"]);
-        console.log(params["colorId"]);
       }
       else{
         this.getCars();

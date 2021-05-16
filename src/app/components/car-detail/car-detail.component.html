@@ -1,0 +1,31 @@
+  <div class="card" style="width: 22.5rem;">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let detail of carImageDetails; index as i; first as firstImage" class="carousel-item" [ngClass]="{active:firstImage}">
+            <img [src]="carImageBasePath+detail.imagePath"  class="card-img-top d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <div *ngIf="carDto" class="card-body">
+      <h5 class="card-title">{{carDto.carName}}</h5>
+    </div>
+    <ul *ngIf="carDto" class="list-group list-group-flush">
+      <li class="list-group-item">Marka: <h6 class="d-inline">{{carDto.brandName}}</h6></li>
+      <li class="list-group-item">Renk: <h6 class="d-inline">{{carDto.colorName}}</h6></li>
+      <li class="list-group-item">Model/Yıl: <h6 class="d-inline">{{carDto.modelYear}}</h6></li>
+      <li class="list-group-item">Günlük Fiyat: <h6 class="d-inline">{{carDto.dailyPrice}}</h6></li>
+    </ul>
+    <div class="card-body text-center d-grid">
+      <a href="#" class="btn btn-sm btn-primary">Kirala</a>
+    </div>
+  </div>
+
+  
