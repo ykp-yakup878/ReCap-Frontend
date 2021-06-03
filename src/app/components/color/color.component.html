@@ -1,4 +1,18 @@
+<div class="mb-3">
+    <label for="filterText" class="form-label">Arama</label>
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filterText"
+      placeholder="Color"
+    />
+  </div>
+  <div *ngIf="filterText.length > 2" class="alert alert-success">
+    {{ filterText }} aradınız
+  </div>
+
 <ul class="list-group">
-    <li [class]="getAllColorClass()" routerLink="/cars" (click)="cleanCurrentColor()">Tüm Renkler</li>
-    <li (click)="setCurrentlyColor(color)" routerLink="/cars/color/{{color.colorId}}" *ngFor="let color of colors" [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
+    <li [class]="getAllColorClass()" routerLink="" (click)="cleanCurrentColor()">Tüm Renkler</li>
+    <li (click)="setCurrentlyColor(color)" routerLink="/cars/color/{{color.colorId}}" *ngFor="let color of colors|filterColorPipe:filterText" [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
 </ul>

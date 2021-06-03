@@ -1,25 +1,76 @@
-<div *ngIf="dataLoaded==false" class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Arama</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="Car"
+  />
+</div>
+<div *ngIf="filterText.length > 2" class="alert alert-success">
+  {{ filterText }} aradınız
+</div>
+<div class="row">
+  <div class="col-md-3">
+      <label>Brand</label>
+      <select class="form-select" [(ngModel)]="brandId">
+        <option *ngFor="let brand of brands | filterBrandPipe: filterBrandText" [value]="brand.brandId">
+          {{ brand.brandName }}
+        </option>
+      </select>
   </div>
-<table *ngIf="dataLoaded!=false" class="table table-dark -table-hover">
-    <thead>
-        <tr>
-            <td>Id</td>
-            <td>Brand</td>
-            <td>Color</td>
-            <td>Car</td>
-            <td>Model Year</td>
-            <td>Daily Price</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let car of cars" routerLink="/cars/carDetail/{{car.carId}}">
-            <td>{{car.carId}}</td>
-            <td>{{car.brandName}}</td>
-            <td>{{car.colorName}}</td>
-            <td>{{car.carName}}</td>
-            <td>{{car.modelYear}}</td>
-            <td>{{car.dailyPrice}}</td>
-        </tr>
-    </tbody>
+  <div class="col-md-3">
+      <label>Renk</label>
+      <select class="form-select" [(ngModel)]="colorId">
+        <option *ngFor="let color of colors | filterColorPipe: filterColorText" [value]="color.colorId">
+          {{ color.colorName }}
+        </option>
+      </select>
+  </div>
+  <div class="col-md-4" style="margin-top: 1.4rem;">
+    <button
+      class="btn btn-primary"
+      (click)="getFilteredCars(brandId, colorId)"
+    >
+      Filtrele
+    </button>
+  </div>
+</div>
+<br>
+<div *ngIf="dataLoaded == false" class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<table *ngIf="dataLoaded != false" class="table table-dark -table-hover">
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Brand</td>
+      <td>Color</td>
+      <td>Car</td>
+      <td>Model Year</td>
+      <td>Daily Price</td>
+      <td>İşlemler</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of cars | filterCarPipe: filterText">
+      <td>{{ car.carId }}</td>
+      <td routerLink="/cars/carDetail/{{ car.carId }}">{{ car.brandName }}</td>
+      <td>{{ car.colorName }}</td>
+      <td>{{ car.carName }}</td>
+      <td>{{ car.modelYear }}</td>
+      <td>{{ car.dailyPrice }}</td>
+      <td>
+        <button class="btn btn-sm btn-danger" (click)="carDelete(car)">
+          Sil
+        </button>
+      </td>
+    </tr>
+  </tbody>
 </table>
+<button class="btn btn-outline-dark" (click)="tiklandi()">
+  Yeni Araç Ekle
+</button>
+
