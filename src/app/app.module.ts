@@ -22,6 +22,8 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { RentalAddComponent } from './components/rental-add/rental-add.component
     CarUpdateComponent,
     LoginComponent,
     RentalAddComponent,
+    AuthLayoutComponent,
+    AdminLayoutComponent,
   ],
   imports: [
     BrowserModule,

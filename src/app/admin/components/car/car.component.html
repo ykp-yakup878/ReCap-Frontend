@@ -53,13 +53,13 @@
       <td>Car</td>
       <td>Model Year</td>
       <td>Daily Price</td>
-      <td>İşlemler</td>
+      <td>İşlemlerr</td>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let car of cars | filterCarPipe: filterText">
       <td>{{ car.carId }}</td>
-      <td routerLink="/cars/carDetail/{{ car.carId }}">{{ car.brandName }}</td>
+      <td routerLink="/admin/cars/carDetail/{{ car.carId }}">{{ car.brandName }}</td>
       <td>{{ car.colorName }}</td>
       <td>{{ car.carName }}</td>
       <td>{{ car.modelYear }}</td>

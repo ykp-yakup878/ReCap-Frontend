@@ -97,22 +97,8 @@ export class CarComponent implements OnInit {
       this.brands = response.data;
     });
   }
-  // getSelectedBrandId(brandId: number) {
-  //   if (this.brandId == brandId) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-  // getSelectedColorId(colorId: number) {
-  //   if (this.colorId == colorId) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
   tiklandi(){
-    this.router.navigate(['/cars/add'],{replaceUrl:true})
+    this.router.navigate(['/admin/cars/add'],{replaceUrl:true})
     this.toastrService.warning("","Tıklandı",{timeOut:1000})
   }
 
