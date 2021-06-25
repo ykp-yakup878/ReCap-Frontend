@@ -15,6 +15,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { RentalComponent } from './components/rental/rental.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
     FilterColorPipePipe,
     CarAddComponent,
     CarDetailComponent,
-    CarUpdateComponent
+    CarUpdateComponent,
+    CustomerComponent,
+    RentalComponent,
   ],
   imports: [
     CommonModule,

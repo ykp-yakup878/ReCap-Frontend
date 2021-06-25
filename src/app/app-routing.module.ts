@@ -1,13 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './auth/error404/error404.component';
-import { CarAddComponent } from './components/car-add/car-add.component';
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
-import { CarUpdateComponent } from './components/car-update/car-update.component';
-import { CarComponent } from './components/car/car.component';
-import { CustomerComponent } from './components/customer/customer.component';
-import { LoginComponent } from './components/login/login.component';
-import { RentalComponent } from './components/rental/rental.component';
 import { LoginGuard } from './guards/login.guard';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
