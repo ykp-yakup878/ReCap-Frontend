@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './auth/error404/error404.component';
+import { AuthorizationGuard } from './guards/authorization.guard';
 import { LoginGuard } from './guards/login.guard';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
@@ -12,7 +13,7 @@ const routes: Routes = [
     children:[
       {
         path:'',
-        redirectTo:'/admin',
+        redirectTo:'/admin/cars',
         pathMatch:'full'
       },
       {
@@ -20,7 +21,7 @@ const routes: Routes = [
         loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
       }
     ],
-    canActivate:[LoginGuard]
+    canActivate:[LoginGuard,AuthorizationGuard]
   },
   // { path: '', pathMatch: 'full', component: CarComponent },
   // { path: 'cars', component: CarComponent },

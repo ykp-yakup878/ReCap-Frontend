@@ -32,7 +32,19 @@
           </li> -->
         </ul>
         <div class="d-flex">
-          <button class="btn btn-sm btn-outline-info" routerLink="auth">Login</button>
+          <button class="btn btn-sm btn-outline-info" routerLink="auth" *ngIf="user==null">Login</button>
+          <div class="dropdown bg-dark" *ngIf="user!=null">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+              {{user.firstName}} {{user.lastName}}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+              <li><a class="dropdown-item active" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" routerLink="auth/login" (click)="LogOut()">Log Out</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -49,6 +49,7 @@ import { RentalComponent } from './components/rental/rental.component';
       easing:'ease-in-out-elastic',
       preventDuplicates:true,
     }),
+    
   ]
 })
 export class AdminModule { }
