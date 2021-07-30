@@ -37,10 +37,9 @@
             <div class="form-group mb-3">
               <label for="brandId">Marka</label>
               <select class="form-select" formControlName="brandId">
+                <option [ngValue]="undefined" disabled>{{carForUpdate.brandName}}</option>
                 <option
                   *ngFor="let brand of brands"
-                  selected="{{ carForUpdate.brandName }}"
-                  [ngValue]="brand.brandId"
                 >
                   {{ brand.brandName }}
                 </option>

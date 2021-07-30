@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
-import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.createLoginForm();
+
+    console.log(encodeURIComponent(".,:;``_/()=[]}&%"))
   }
   createLoginForm() {
     this.loginForm = this.formBuilder.group({
@@ -44,14 +46,13 @@ export class LoginComponent implements OnInit {
 
           this.userService.GetUser(this.loginForm.value.email).subscribe(response=>{
             this.userService.GetClaims(response.data.id).subscribe(claim=>{
-              console.log(claim.data);
+              // console.log(claim.data);
               localStorage.setItem('role',JSON.stringify(claim.data))
             })
           })
-          // this.userService.GetClaims(this.user.id).subscribe(response=>{
-          //   console.log(response);
-            
-          // })
+          
+          var decoded=jwtDecode(response.data.token)
+          console.log(decoded)
           setTimeout(() => {
             this.router.navigate(['admin/cars']);
           }, 100);
